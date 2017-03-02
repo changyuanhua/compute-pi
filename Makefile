@@ -4,7 +4,7 @@ EXECUTABLE = \
 	time_test_baseline time_test_openmp_2 time_test_openmp_4 \
 	time_test_avx time_test_avxunroll \
         time_test_leibniz time_test_leibnizavx time_test_leibnizavxunroll \
-	time_test_euler \
+	time_test_euler time_test_nilakantha \
 	benchmark_clock_gettime
 
 GIT_HOOKS := .git/hooks/pre-commit
@@ -23,6 +23,7 @@ default: $(GIT_HOOKS) computepi.o
 	$(CC) $(CFLAGS) computepi.o time_test.c -DLEIBNIZAVX -o time_test_leibnizavx -lm
 	$(CC) $(CFLAGS) computepi.o time_test.c -DLEIBNIZAVXUNROLL -o time_test_leibnizavxunroll -lm
 	$(CC) $(CFLAGS) computepi.o time_test.c -DEULER -o time_test_euler -lm
+	$(CC) $(CFLAGS) computepi.o time_test.c -DNILAKANTHA -o time_test_nilakantha -lm
 	$(CC) $(CFLAGS) computepi.o benchmark_clock_gettime.c -o benchmark_clock_gettime -lm
 
 .PHONY: clean default
@@ -40,6 +41,7 @@ check: default
 	time ./time_test_leibnizavx
 	time ./time_test_leibnizavxunroll
 	time ./time_test_euler
+	time ./time_test_nilakantha
 gencsv: default
 	for i in `seq 500 500 200000`; do \
 		printf "%d," $$i;\
