@@ -85,8 +85,16 @@ int main(int argc, char const *argv[])
         compute_pi_leibnizavxunroll(N);
     }
     clock_gettime(CLOCK_ID, &end);
-    printf("%lf\n", (double) (end.tv_sec - start.tv_sec) +
+    printf("%lf,", (double) (end.tv_sec - start.tv_sec) +
            (end.tv_nsec - start.tv_nsec)/ONE_SEC);
 
+    //Euler
+    clock_gettime(CLOCK_ID, &start);
+    for(i = 0; i < loop; i++) {
+        compute_pi_euler(N);
+    }
+    clock_gettime(CLOCK_ID, &end);
+    printf("%lf\n", (double) (end.tv_sec - start.tv_sec) +
+           (end.tv_nsec - start.tv_nsec)/ONE_SEC);
     return 0;
 }

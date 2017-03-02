@@ -17,4 +17,5 @@ plot "result_clock_gettime.csv" using 1:2 with lines title 'baseline', \
 '' using 1:6 with lines title 'avx unroll', \
 '' using 1:7 with lines title 'leibniz', \
 '' using 1:8 with lines title 'leibniz avx', \
-'' using 1:9 with lines title 'leibniz avx unroll'
+'' using 1:9 with lines title 'leibniz avx unroll', \
+'' using 1:10 with lines lc rgb "pink" title 'euler'

@@ -7,3 +7,4 @@ double compute_pi_avx_unroll(size_t N);
 double compute_pi_leibniz(size_t N);
 double compute_pi_leibnizavx(size_t N);
 double compute_pi_leibnizavxunroll(size_t N);
+double compute_pi_euler(size_t N);

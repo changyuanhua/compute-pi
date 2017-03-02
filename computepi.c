@@ -206,3 +206,11 @@ double compute_pi_leibnizavxunroll(size_t N)
           tmp4[0] + tmp4[1] + tmp4[2] + tmp4[3];
     return pi * 4.0;
 }
+double compute_pi_euler(size_t N)
+{
+    double pi = 0.0;
+    for (size_t i = 1; i <= N; i++)
+        pi += (1 / pow(i, 2.0));
+    pi *= 6;
+    return sqrt(pi);
+}

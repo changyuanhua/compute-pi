@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "computepi.h"
+#include <math.h>
 
 int main(int argc, char const *argv[])
 {
@@ -36,6 +37,10 @@ int main(int argc, char const *argv[])
 
 #if defined(LEIBNIZAVXUNROLL)
     pi = compute_pi_leibnizavxunroll(N);
+#endif
+
+#if defined(EULER)
+    pi = compute_pi_euler(N);
 #endif
     printf("N = %d , pi = %lf\n", N, pi);
 
